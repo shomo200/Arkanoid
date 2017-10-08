@@ -14,7 +14,7 @@ void Paddle::Update(float deltaTime)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && paddle.getPosition().x > 0.f)
         paddle.move(-speed * deltaTime, 0.f);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && paddle.getPosition().x < 512.f)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && paddle.getPosition().x < GlobalObjects::windowWidth)
         paddle.move(speed * deltaTime, 0.f);
 }
 

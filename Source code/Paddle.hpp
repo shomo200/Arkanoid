@@ -2,6 +2,7 @@
 #define PADDLE_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "GlobalObjects.hpp"
 
 class Paddle
 {

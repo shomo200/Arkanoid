@@ -2,6 +2,7 @@
 #define BALL_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "GlobalObjects.hpp"
 
 class Ball
 {

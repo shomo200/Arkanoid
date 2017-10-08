@@ -17,11 +17,11 @@ void Ball::Update(float deltaTime)
 
     if (left() < 0.f)
         velocity.x = -velocity.x;
-    if (rigth() > 512.f)
+    if (rigth() > GlobalObjects::windowWidth)
         velocity.x = -velocity.x;
     if (top() < 0.f)
         velocity.y = -velocity.y;
-    if (bottom() > 512.f)
+    if (bottom() > GlobalObjects::windowHeight)
         velocity.y = -velocity.y;
 }
 
