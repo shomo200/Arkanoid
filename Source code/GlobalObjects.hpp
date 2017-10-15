@@ -9,7 +9,7 @@ private:
     GlobalObjects() = delete;
 
 public:
-    constexpr static const float windowWidth=512, windowHeight=512;
+    static const float windowWidth, windowHeight;
     static sf::RenderWindow window;
 };
 

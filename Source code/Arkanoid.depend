@@ -432,48 +432,53 @@
 1507459985 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\globalobjects.hpp
 	<SFML/Graphics.hpp>
 
-1507459951 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\game.cpp
+1507736383 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\game.cpp
 	"Game.hpp"
+	<iostream>
 
-1507459951 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\game.hpp
+1507471241 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\game.hpp
 	<SFML/Graphics.hpp>
-
-1507460089 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\ball.cpp
 	"Ball.hpp"
 
-1507460051 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\ball.hpp
-	<SFML/Graphics.hpp>
-	"GlobalObjects.hpp"
+1508100218 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\ball.cpp
+	"Ball.hpp"
+	<iostream>
 
-1507367292 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\block.cpp
+1508100198 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\ball.hpp
+	<SFML/Graphics.hpp>
+	"Block.hpp"
+	"GlobalObjects.hpp"
+	"Paddle.hpp"
+
+1507470566 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\block.cpp
 	"Block.hpp"
 
-1507373031 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\block.hpp
+1508091479 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\block.hpp
+	<cmath>
 	<SFML/Graphics.hpp>
 
-1507376008 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\blocksfield.cpp
-	<cmath>
+1508099899 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\blocksfield.cpp
+	<iostream>
 	"BlocksField.hpp"
 
-1507373803 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\blocksfield.hpp
+1508099899 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\blocksfield.hpp
 	<list>
-	"Block.hpp"
 	"Ball.hpp"
 
-1507461456 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\globalobjects.hpp
+1507470287 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\globalobjects.hpp
 	<SFML/Graphics.hpp>
 
-1507461434 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\globalobjects.cpp
+1507470287 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\globalobjects.cpp
 	"GlobalObjects.hpp"
 
-1507461551 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\main.cpp
+1508095244 source:c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<cmath>
+	"GlobalObjects.hpp"
 	"BlocksField.hpp"
 	"Paddle.hpp"
 	"Game.hpp"
-	"GlobalObjects.hpp"
 
 1507460121 c:\users\piotr\desktop\programowanie\sfml_testy\arkanoid\source code\paddle.hpp
 	<SFML/Graphics.hpp>
