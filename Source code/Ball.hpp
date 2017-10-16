@@ -21,8 +21,9 @@ public:
 
     bool checkColission(const Block & block);
     bool checkColission(const Paddle & paddle);
+    bool exist() { return bottom() < GlobalObjects::windowHeight; }
 
-    bool Update(float deltaTime);
+    void Update(float deltaTime);
 
     void Draw(sf::RenderWindow & window);
 

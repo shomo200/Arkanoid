@@ -1,5 +1,4 @@
 #include "Ball.hpp"
-#include <iostream>
 Ball::Ball(float radius, const sf::Vector2f & position, const sf::Color & color, float speed, float angle)
 {
     circle.setRadius(radius);
@@ -71,8 +70,15 @@ bool Ball::checkColission(const Block & block)
         // angle in range [0; 360]
         float angle = 2 * alpha - beta;
         // angle in range [-180; 180]
-        if (angle >= 180.f)
+        if (angle > 180.f)
             angle -= 360.f;
+        else if (angle <= -180.f)
+            angle += 360.f;
+
+        if (angle <= 0.f && angle > -8.f)
+            angle = -8.f;
+        else if (angle > 0.f && angle < 8.f)
+            angle = 8.f;
 
         setAngle(angle);
 
@@ -82,25 +88,36 @@ bool Ball::checkColission(const Block & block)
     return false;
 }
 
-bool checkColission(const Paddle & paddle)
+bool Ball::checkColission(const Paddle & paddle)
 {
-    return true;
+    if (left() < paddle.rigth() && rigth() > paddle.left() && top() < paddle.bottom() && bottom() >= paddle.top())
+    {
+        /*float minAngle = 120.f, maxAngle = 60.f;
+        float percantage = getX() - paddle.left() / paddle.getSize().x;
+        float angle = minAngle - (minAngle - maxAngle) * percantage;
+        setAngle(angle);*/
+
+        float deviation = 50.f;
+        bool leftSide = getX() < paddle.getPosition().x;
+        float distanceFromCenter = std::abs(getX() - paddle.getPosition().x);
+        float percantage = distanceFromCenter / (paddle.getSize().x / 2.f);
+        float angle = 90.f - percantage * deviation * (leftSide ? -1.f : 1.f);
+        setAngle(angle);
+
+        return true;
+    }
+    return false;
 }
 
-bool Ball::Update(float deltaTime)
+void Ball::Update(float deltaTime)
 {
     circle.move(velocity * deltaTime);
-
     if (left() <= 0.f)
         velocity.x = -velocity.x;
     if (rigth() >= GlobalObjects::windowWidth)
         velocity.x = -velocity.x;
     if (top() <= 0.f)
         velocity.y = -velocity.y;
-    if (bottom() >= GlobalObjects::windowHeight)
-        return false;
-
-    return true;
 }
 
 void Ball::Draw(sf::RenderWindow & window)

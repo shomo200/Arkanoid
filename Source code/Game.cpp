@@ -2,20 +2,32 @@
 #include <iostream>
 
 Ball * Game::ball = nullptr;
-void Game::Update(float deltaTime)
+Paddle * Game::paddle = nullptr;
+
+bool Game::Update(float deltaTime, BlocksField & blocksField)
 {
-    static int i = 0;
-    if (ball != nullptr && !ball->Update(deltaTime))
+    if (paddle != nullptr)
+        paddle->Update(deltaTime);
+
+    if (ball != nullptr && ball->exist())
+    {
+        ball->Update(deltaTime);
+        ball->checkColission(*paddle);
+        blocksField.Update(*ball);
+        return true;
+    }
+    else
     {
         delete ball;
         ball = nullptr;
+        return false;
     }
-    /*if (ball != nullptr)
-        std::cout << "Ball " << i++ << std::endl;*/
 }
 
 void Game::Draw(sf::RenderWindow & window)
 {
     if (ball != nullptr)
         ball->Draw(window);
+    if (paddle != nullptr)
+        paddle->Draw(window);
 }
