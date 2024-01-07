@@ -8,18 +8,77 @@
 
 class Block
 {
-private:
-    sf::RectangleShape rect;
+  
+
+protected:
+    Block() {};
 
 public:
-    Block(const sf::Vector2f & size, const sf::Vector2f & position, const sf::Color & color);
 
-    void Draw(sf::RenderWindow & window);
+    virtual void Draw(sf::RenderWindow & window) = 0;
+    
+    virtual void updatelifeBlok() = 0;
 
-    float left()   const { return rect.getPosition().x; }
-    float rigth()  const { return rect.getPosition().x + rect.getSize().x; }
-    float top()    const { return rect.getPosition().y; }
-    float bottom() const { return rect.getPosition().y + rect.getSize().y; }
+    virtual bool getlifblok() = 0;
+
+
+    virtual float left() const = 0;
+    virtual float rigth() const = 0;
+    virtual float top() const = 0;  
+    virtual float bottom() const = 0;
 };
 
-#endif // BLOCK_HPP_
+
+class Blocklevel1 : public Block
+{
+    public:
+
+     Blocklevel1(const sf::Vector2f & size, const sf::Vector2f & position);
+
+
+     bool getlifblok()  override;
+
+     void Draw(sf::RenderWindow & window);
+         
+     void updatelifeBlok() override; 
+
+    float left()   const override { return rect.getPosition().x; }
+    float rigth()  const override { return rect.getPosition().x + rect.getSize().x; }
+    float top()    const override { return rect.getPosition().y; }
+    float bottom() const override { return rect.getPosition().y + rect.getSize().y; }
+
+    private:
+    sf::RectangleShape rect;
+    int lifeblok;
+    std::vector<sf::Color> listColor = {sf::Color::Red,sf::Color::Green,sf::Color::White};
+
+};
+
+
+
+class Blocklevel2 : public Block
+{
+    public:
+
+     Blocklevel2(const sf::Vector2f & size, const sf::Vector2f & position);
+
+
+     bool getlifblok()  override;
+
+     void Draw(sf::RenderWindow & window);
+         
+     void updatelifeBlok() override; 
+
+    float left()   const override { return rect.getPosition().x; }
+    float rigth()  const override { return rect.getPosition().x + rect.getSize().x; }
+    float top()    const override { return rect.getPosition().y; }
+    float bottom() const override { return rect.getPosition().y + rect.getSize().y; }
+
+    private:
+    sf::RectangleShape rect;
+    int lifeblok;
+    std::vector<sf::Color> listColor = {sf::Color::Red,sf::Color::Green,sf::Color::White,sf::Color::Yellow};
+
+};
+
+#endif // BLOCK_HPP

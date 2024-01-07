@@ -19,13 +19,14 @@ float Ball::getAngle()
 {
     // angle in range [-180; 180]
     float angle = std::atan2(-velocity.y, velocity.x) * 180 / M_PI;
+    
     // angle in range [0; 360]
     if (angle < 0.f)
         angle += 360.f;
     return angle;
 }
 
-bool Ball::checkColission(const Block & block)
+bool Ball::checkColission( Block & block)
 {
     if ( (getX() >= block.left() && getX() <= block.rigth()) ||
          (getY() >= block.top() && getY() <= block.bottom()) )
@@ -40,7 +41,9 @@ bool Ball::checkColission(const Block & block)
             {
                 velocity.y *= -1;
             }
-            return true;
+            block.updatelifeBlok();
+            return block.getlifblok();
+
         }
     }
     else
@@ -82,7 +85,9 @@ bool Ball::checkColission(const Block & block)
 
         setAngle(angle);
 
-        return true;
+        
+        block.updatelifeBlok();
+        return block.getlifblok();
     }
 
     return false;

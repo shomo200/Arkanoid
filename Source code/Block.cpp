@@ -1,13 +1,59 @@
 #include "Block.hpp"
+#include <random>
 
-Block::Block(const sf::Vector2f & size, const sf::Vector2f & position, const sf::Color & color)
+
+ Blocklevel1::Blocklevel1(const sf::Vector2f & size, const sf::Vector2f & position)
+
+: Block{},
+lifeblok {(rand() % 3)}
+
 {
     rect.setSize(size);
     rect.setPosition(position);
-    rect.setFillColor(color);
+    rect.setFillColor(listColor[lifeblok]);
+
 }
 
-void Block::Draw(sf::RenderWindow & window)
+bool Blocklevel1::getlifblok()
+{
+     return lifeblok == -1;
+}
+
+void Blocklevel1::updatelifeBlok()
+{lifeblok -= 1; rect.setFillColor(listColor[lifeblok]);}
+
+
+void Blocklevel1::Draw(sf::RenderWindow & window)
 {
     window.draw(rect);
+    
 }
+
+
+Blocklevel2::Blocklevel2(const sf::Vector2f & size, const sf::Vector2f & position)
+
+: Block{},
+lifeblok {(rand() % 4)}
+
+{
+    rect.setSize(size);
+    rect.setPosition(position);
+    rect.setFillColor(listColor[lifeblok]);
+
+}
+
+bool Blocklevel2::getlifblok()
+{
+     return lifeblok == -1;
+}
+
+void Blocklevel2::updatelifeBlok()
+{lifeblok -= 1; rect.setFillColor(listColor[lifeblok]);}
+
+
+void Blocklevel2::Draw(sf::RenderWindow & window)
+{
+    window.draw(rect);
+    
+}
+

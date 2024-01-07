@@ -6,6 +6,7 @@
 #include "GlobalObjects.hpp"
 #include "Paddle.hpp"
 
+
 class Ball
 {
 private:
@@ -19,7 +20,7 @@ private:
 public:
     Ball(float radius, const sf::Vector2f & position, const sf::Color & color, float speed, float angle);
 
-    bool checkColission(const Block & block);
+    bool checkColission( Block & block);
     bool checkColission(const Paddle & paddle);
     bool exist() { return bottom() < GlobalObjects::windowHeight; }
 
